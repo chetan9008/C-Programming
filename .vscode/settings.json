@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "interchangeEVEN&ODD.C": "cpp",
+        "TRANSPOSE-ARRAY.C": "cpp",
+        "symmetricARRAY.C": "cpp",
+        "XSTRCMP.C": "cpp",
+        "FIBONACCI-SERIES-WITHOUTRECURSTION.C": "cpp"
+    },
+    "C_Cpp.errorSquiggles": "Disabled"
+}

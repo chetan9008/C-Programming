@@ -1,0 +1,26 @@
+#include<stdio.h>
+#include<stdlib.h>
+void showbit(char n)
+{
+    char j,k,andmark;
+    int i;
+    for(i=7;i>=0;i--)
+    {
+        j=i;
+        andmark=1<<j;
+        k=n&andmark;
+        (k==0)?printf("0"):printf("1");
+    }
+}
+int main()
+{
+    char ch;
+    printf("enter the no");
+    scanf("%x",&ch);
+    showbit(ch);
+    printf("\n");
+    char xor=1<<5;
+    printf("\n");
+    showbit(ch^xor);
+    return 0;
+}

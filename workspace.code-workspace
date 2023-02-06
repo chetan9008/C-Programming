@@ -1,0 +1,26 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"stdlib.h": "c",
+			"string.h": "c",
+			"HELLO.C": "cpp",
+			"stdio.h": "c",
+			"variableargumentINFUNCTION.C": "cpp",
+			"va_argDIFFRENTDATATYPE.C": "cpp",
+			"EXPERIMENT.C": "cpp",
+			"replaceSTRING.C": "cpp",
+			"alphabeticalorderSTRING.C": "cpp",
+			"reverseSTRING.C": "cpp",
+			"deletevowelSTRING.C": "cpp",
+			"remove-the-STRING.C": "cpp",
+			"sirnameSTRING.C": "cpp",
+			"boomerPROGRAM-STRING.C": "cpp",
+			"recusionSUM.C": "cpp"
+		}
+	}
+}

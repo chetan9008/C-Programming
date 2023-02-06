@@ -1,0 +1,29 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"EXPERIMENT.C": "cpp",
+			"IFENVENOFF.C": "cpp",
+			"REVERSENUMBER.C": "cpp",
+			"REVERSEORPALLINDROME.C": "cpp",
+			"SLOPE.C": "cpp",
+			"IFPRACTICE.C": "cpp",
+			"LEAPYEAR.C": "cpp",
+			"stdio.h": "c",
+			"PRIMEINC.C": "cpp",
+			"PRIMENO-1TO300.C": "cpp",
+			"FACTORIAL-APP.C": "cpp",
+			"FOR-LOOP.C": "cpp",
+			"TABLE.C": "cpp",
+			"PYTHGOREAN-TRIPLES.C": "cpp",
+			"TIME.C": "cpp",
+			"FIBONACCI-SERIES-WITHOUTRECURSTION.C": "cpp",
+			"SONU-BHAIYA(TUTION).C": "cpp",
+			"sonubhaiya.C": "cpp"
+		}
+	}
+}

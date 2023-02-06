@@ -1,0 +1,21 @@
+#include<stdio.h>
+void showbit(char n)
+{
+    char j,k,andmark;
+    int i;
+    for(i=7;i>=0;i--)
+    {
+        j=i;
+        andmark=1<<j;
+        k=n&andmark;
+        (k==0)?printf("0"):printf("1");
+    }
+}
+int main()
+{
+    unsigned char ch=0xff;
+    showbit(ch);
+    printf("\n");
+    unsigned char andmark=1<<4;
+    showbit(ch&~andmark);
+}
