@@ -1,23 +1,17 @@
-#include<stdio.h>
+#include <stdio.h>
+#include<math.h>
 int main()
 {
-    int a,b,c;
-    printf("enter the a,b,c:");
-    scanf("%d%d%d",&a,&b,&c);
-    if(a>b)
+    float num = .25423333;
+    float num1 = .254244444;
+    num = floor(10000 * num) / 10000;
+    num1 = floor(10000 * num1) / 10000;
+    if(num == num1)
     {
-        if(a>c)
-        printf("%d is largest",a);
-        else
-        printf("%d is largest",c);
+        printf("yes");
     }
-    //printf("please turn over");
     else
     {
-        if(b>c)
-        printf("%d is largest",b);
-        else
-        printf("%d is largest",c);
+        printf("no");
     }
-    return 0; 
 }
