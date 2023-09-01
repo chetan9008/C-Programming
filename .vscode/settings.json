@@ -4,7 +4,8 @@
         "TRANSPOSE-ARRAY.C": "cpp",
         "symmetricARRAY.C": "cpp",
         "XSTRCMP.C": "cpp",
-        "FIBONACCI-SERIES-WITHOUTRECURSTION.C": "cpp"
+        "FIBONACCI-SERIES-WITHOUTRECURSTION.C": "cpp",
+        "deletevowelSTRING.C": "cpp"
     },
     "C_Cpp.errorSquiggles": "Disabled"
 }
