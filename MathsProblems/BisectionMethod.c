@@ -1,66 +1,61 @@
 #include <stdio.h>
 #include <math.h>
-float less, big;
-float function(float x)
+
+// Define the function for which you want to find the root.
+double f(double x)
 {
-    return ((x*x*x)+(4*x*x)-10);
+    return x * x * x - 4 * x - 9;
 }
-float mean(float x, float y)
+
+// Bisection method to find the root of the function within the given interval [a, b].
+double bisection(double a, double b, double tol)
 {
-    return ((x + y) / 2.0);
-}
-void sort(float x, float y, float i, float j)
-{
-    if (x < y)
+    double c;
+
+    while ((b - a) >= tol)
     {
-        less = i;
-        big = j;
+        // Find midpoint
+        c = (a + b) / 2.0;
+
+        // Check if the root is found or not
+        if (f(c) == 0.0)
+        {
+            break;
+        }
+
+        // Update the interval [a, b]
+        if (f(c) * f(a) < 0)
+        {
+            b = c;
+        }
+        else
+        {
+            a = c;
+        }
+    }
+
+    return c;
+}
+
+int main()
+{
+    double a, b, tol, root;
+
+    printf("Enter the interval [a, b]: ");
+    scanf("%lf %lf", &a, &b);
+
+    printf("Enter the tolerance (e.g., 0.0001): ");
+    scanf("%lf", &tol);
+
+    if (f(a) * f(b) >= 0)
+    {
+        printf("The function does not have opposite signs at the endpoints of the interval. Bisection method cannot be applied.\n");
     }
     else
     {
-        big = i;
-        less = j;
+        root = bisection(a, b, tol);
+        printf("The root of the function is approximately: %lf\n", root);
     }
-}
-int main()
-{
-    printf("\tx^3 + 4x^2 -10\n");
-    printf("For the above equation roots by Bisection Method is :");
-    float x, y, a;
-    int n;
-    float arr1[20];
-    for (int i = 0;; i++)
-    {
-        x = function(i);
-        y = function(i + 1);
-        if (((x > 0) && (y > 0)) || ((x < 0) && (y < 0)))
-            continue;
-        else
-        {
-            sort(x, y, i, i + 1);
-            break;
-        }
-    }
-    for (int i = 0;; i++)
-    {
-        a = mean(less, big);
-        x = function(a);
-        if (x < 0)
-        {
-            less = a;
-        }
-        else
-        {
-            big = a;
-        }
-        arr1[i] = a;
-        printf("\n\tIteration %d:%f\n",i,arr1[i]);
-            if (arr1[i] == arr1[i + 1])
-            {
-                n = i + 1;
-                printf("Hence the Root is : %f",a);
-                break;
-            }
-    }
+
     return 0;
 }
