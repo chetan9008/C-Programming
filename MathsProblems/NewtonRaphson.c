@@ -1,42 +1,35 @@
-#include<stdio.h>
+#include <stdio.h>
+#include <math.h>
 float function(float x)
 {
-    return ((x*x*x)-(3.0*x)-5.0);
+    return x * log10(x) - 1.2;
 }
-float differentiate(float x)
+float derivation(float x)
 {
-    return ((3.0*x*x)-3.0);
+    return log10(x) + 0.43429;
 }
-void raphson(float mean)
+int newtonRaphson(float i, float t, int mx)
 {
-    float arr[10];
-    arr[0]= mean;
-    for(int i=0;;i++)
+    float xn, h, x0;
+    x0 = i;
+    for (int i = 0; i < mx; i++)
     {
-        arr[i+1]=arr[i] - ((function(arr[i]))/differentiate(arr[i]));
-        printf("On Iteration %d : %f\n",i,arr[i]);
-        if(arr[i]==arr[i+1])
+        h = function(x0) / derivation(x0);
+        xn = x0 - h;
+        if (fabs(h) < t)
         {
-            printf("Hence By Newton Raphson Mehod \nThe Root is :%f\n",arr[i]);
-            break;
+            printf("Root is %f", xn);
+            return 0;
         }
+        x0 = xn;
     }
+    return 1;
 }
 int main()
 {
-    float x,y;
-    for (int i = 0;; i++)
-    {
-        x = function(i);
-        y = function(i + 1);
-        if (((x > 0) && (y > 0)) || ((x < 0) && (y < 0)))
-            continue;
-        else
-        {
-            x=i;
-            y=i+1;
-            break;
-        }
-    }
-    raphson(((x+y)/2.0));
+    float initial = 2.0;
+    float tolerance = .0001;
+    float mx = 50;
+    newtonRaphson(initial, tolerance, mx);
+    return 0;
 }

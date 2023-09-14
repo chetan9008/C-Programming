@@ -1,53 +1,35 @@
 #include<stdio.h>
-//For find the function
+#include<math.h>
 float function(float x)
 {
-    return ((x*x*x) + (4*x*x) - 10);
+    return x * log10(x) - 1.2;
 }
-float bisection(float x,float y,float t)
+float derivation(float x)
 {
-    float mean;
-    // while loop works till point is not accurate 
-    while((y-x) >= t)
+    return log10(x) + 0.43429;
+}
+int newtonRaphson(float i,float t,int mx)
+{
+    float xn,h,x0;
+    x0 = i;
+    for(int i=0;i<mx;i++)
     {
-        mean = (x+y)/2.0;
-        //if function of mean is zero so that it is perfect root
-        if(function(mean) == 0.0)
+        h = function(x0) / derivation(x0);
+        xn = x0 - h;
+        if(fabs(h) < t)
         {
-            break;
+            printf("Root is %f",xn);
+            return 0;
         }
-        //This is very important expression 
-        // here the +- and -+ and -- and ++ concept is used to find the
-        // appropriate replacement of x and y 
-        if(function(mean) * function(x) < 0)
-        {
-            y = mean;
-        }
-        else
-        {
-            x = mean;
-        }
+        x0 = xn;
     }
-
-    return mean;
+    return 1;
 }
 int main()
 {
-    float x,y,t,root;
-    printf("Enter the first and second interval for the function : \n");
-    scanf("%f%f",&x,&y);
-
-    printf("Enter the correctness of root in point (eg .0001) : ");
-    scanf("%f",&t);
-    // if root is +- or -+ that it's function is less than zero 
-    if(function(x) * function(y) < 0)
-    {
-        root = bisection(x, y, t);
-        printf("Root for the appropriate equation is : %f", root);
-    }
-    else
-    {
-        printf("Please enter the valid positive and negative interval\n");
-    }
+    float initial = 2.0;
+    float tolerance = .0001;
+    float mx = 50;
+    newtonRaphson(initial,tolerance,mx);
     return 0;
 }
