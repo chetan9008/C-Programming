@@ -1,51 +1,40 @@
-#include<stdio.h>
-#include<math.h>
-float function(float x)
+#include <stdio.h>
+#include <math.h>
+double function(double x)
 {
-    return((1.0/2.0)+(sin(x)));
+    return ((1 / 2) + sin(x));
 }
-float differentiate(float x)
+double derivate(double x)
 {
-    return(cos(x));
+    return (cos(x));
 }
-void iterative(float mean)
+double iterative(double i, double t, int mx)
 {
-    float arr[30];
-    arr[0]= mean;
-    int i=0;
-    while(1)
+    float x = i;
+    float xn;
+    for (int i = 0; i < mx; i++)
     {
-        arr[i+1]=function(arr[i]);
-        printf("On Iteration %d : %f\n",i,arr[i]);
-        if(arr[i]==arr[i+1])
+        xn = derivate(x);
+        if (fabs(xn - x) < t)
         {
-            printf("Hence By Newton Raphson Mehod \nThe Root is :%f\n",arr[i]);
-            break;
+            return xn;
         }
-        i++;
+        x = xn;
     }
+    return 0;
 }
 int main()
 {
-    float x,y;
-    for (int i = 0;; i++)
-    {
-        x = function(i);
-        y = function(i + 1);
-        if (((x > 0) && (y > 0)) || ((x < 0) && (y < 0)))
-            continue;
-        else
-        {
-            x=i;
-            y=i+1;
-            break;
-        }
-    }
-    float mean = ((x+y)/2.0);
-    if(differentiate(mean)<1)
-    iterative(mean);
-    else
-    {
-        printf("Please enter other equation\n");
-    }
+    double initial, tolerance;
+    int maxIteration;
+    printf("enter the initial value :");
+    scanf("%lf", &initial);
+    printf("enter the tolerance value :");
+    scanf("%lf", &tolerance);
+    printf("enter the maxIteration value :");
+    scanf("%d", &maxIteration);
+
+    double root = iterative(initial, tolerance, maxIteration);
+    printf("the result is %lf", root);
+    return 0;
 }
